@@ -1,29 +1,25 @@
 - @title = 'Confirmation - Phabricator Task Batch Creator'
 
-:css
-  .same-width input {
-    width: 700px;
-    display: block;
-  }
-
-%form{method: 'post', action: '/'}
-  %p 
-    We will create those tasks. You may edit
-    individually, or just commit them with submit button
-  %p
-    Tasks:
-  .same-width
-    - @tasks.each do |t|
-      %input{name: 'task[]', value: t}
-  %p
-    Project id:
-    %input{name: 'project', value: @project_id}
-  %input{type: 'hidden', name: 'commit', value: 'true'}
-  %p
-    Put your API key:
-    %input{name: 'api-key'}
-  %p
-    Base phabricator URI:
-    %input{name: 'phabricator-uri'}
-    
-  %button Commit via Conduit
+.container
+  %h1 Preview Task Creation
+  %form{method: 'post', action: '/'}
+    %p 
+      We will create those tasks. You may edit
+      individually, or just commit them with submit button
+    %p
+      Tasks:
+    .divider
+      - @tasks.each do |t|
+        %input.form-control.input-block{name: 'task[]', value: t}
+        %br/
+    .divider
+    %p
+      Project id
+    .divider
+      %input.form-control.input-block{name: 'project', value: @project_id}
+    .divider
+    %input{type: 'hidden', name: 'commit', value: 'true'}
+    %input{name: 'api-key', type: 'hidden', value: params['api-key']}
+    %input{name: 'phabricator-uri', type: 'hidden', value: params['phabricator-uri']}
+      
+    %button.btn Commit via Conduit

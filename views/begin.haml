@@ -1,0 +1,14 @@
+- @title = 'Phabricator Task Batch Creator'
+
+.container
+  %h1 Phabricator Batch Task Creator
+  %form{method: 'post', action: '/'}
+    %p
+      Phabricator Base URL
+      %br/
+      %input.form-control{name: 'phabricator-uri'}
+    %p
+      API Key
+      %br/
+      %input.form-control{name: 'api-key'}
+    %button.btn Check

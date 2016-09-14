@@ -1,10 +1,21 @@
 - @title = 'Phabricator Task Batch Creator'
 
-%form{method: 'post', action: '/'}
-  %p
-    Tasks 
-    %textarea{name: 'tasks'}
-  %p
-    Project ID
-    %input{name: 'project'}
-  %button Preview
+.container
+  %h1 Input Tasks and Select Project
+  %form{method: 'post', action: '/'}
+    %p
+      Tasks to batch create (split it with newline)
+      %br/
+      %textarea.form-control{name: 'tasks'}
+    %p
+      Project
+      %br/
+      %select.form-select{name: 'project'}
+        %option Choose
+        - @projects.each do |phid, name|
+          %option{value: phid}= name
+    %input{name: 'api-key', type: 'hidden', value: params['api-key']}
+    %input{name: 'phabricator-uri', type: 'hidden', value: params['phabricator-uri']}
+    %p
+      %button.btn Preview Tasks
+ 
