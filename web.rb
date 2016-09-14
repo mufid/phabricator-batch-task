@@ -19,8 +19,8 @@ post '/' do
 
   begin
     @projects = d.projects
-  #rescue
-   # return haml :failed # Too naive!
+  rescue
+    return haml :failed # Too naive!
   end
 
   if params['tasks'].nil?
