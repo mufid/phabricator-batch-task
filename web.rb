@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'hamlit'
-require 'pry'
+require 'pry' if not production?
 require 'net/http'
 require 'uri'
 

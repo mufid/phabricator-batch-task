@@ -9,7 +9,3 @@ gem 'sinatra'
 gem 'hamlit'
 gem 'thin'
 
-unless production?
-  gem 'pry'
-  gem 'foreman'
-end
