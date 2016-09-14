@@ -1,0 +1,10 @@
+- @title = 'Phabricator Task Batch Creator'
+
+%form{method: 'post', action: '/'}
+  %p
+    Tasks 
+    %textarea{name: 'tasks'}
+  %p
+    Project ID
+    %input{name: 'project'}
+  %button Preview
